@@ -1,0 +1,9 @@
+{
+  "name": "@jirkavrba/advent-of-code-2022",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jirkavrba/advent-of-code-2022",
+  "author": "Jiří Vrba <jiri@vrba.dev>",
+  "license": "MIT",
+  "private": true
+}
