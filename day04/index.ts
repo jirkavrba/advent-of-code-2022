@@ -19,7 +19,23 @@ const assignments: Array<Array<Assignment>> = source.map((line) => {
 
 const contains = (first: Assignment, second: Assignment): boolean => {
   return first.from >= second.from && first.to <= second.to;
-}
+};
 
-// part 1 
-console.log(assignments.filter(([first, second]) => contains(first, second) || contains(second, first)).length);
+const overlaps = (first: Assignment, second: Assignment): boolean => {
+  return (
+    (first.from >= second.from && first.from <= second.to) ||
+    (first.to >= second.from && first.to <= second.from)
+  );
+};
+
+// part 1
+console.log(
+  assignments.filter(
+    ([first, second]) => contains(first, second) || contains(second, first)
+  ).length
+);
+
+// part 2
+console.log(
+  assignments.filter(([first, second]) => overlaps(first, second) || overlaps(second, first)).length
+);
