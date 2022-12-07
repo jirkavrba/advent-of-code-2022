@@ -8,8 +8,14 @@ const containsUniqueCharacters = (array: Array<string>): boolean => {
   return unique.length === array.length;
 };
 
-const start = input.findIndex((_, index, array) => index > 3 && containsUniqueCharacters(array.slice(index - 4, index)));
-const message = input.findIndex((_, index, array) => index > 13 && containsUniqueCharacters(array.slice(index - 14, index)));
+const findFirstUniqueBytePosition = (array: Array<string>, length: number): number => {
+  return array.findIndex((_, index, array) => 
+    index > (length - 1) && 
+    containsUniqueCharacters(array.slice(index - length, index)));
+}
+
+const start = findFirstUniqueBytePosition(input, 4);
+const message = findFirstUniqueBytePosition(input, 14);
 
 // part 1
 console.log(start);
